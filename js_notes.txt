@@ -1,0 +1,123 @@
+1) JavaScript HTML-ə 2 yolla qoşulur:internal və external (head və ya body daxilində </script> tagı açılır və src (external) ilə daxil edilir ş
+2) JavaScript outputs: 1-document.write()
+                       2-console.log()
+                       3-alert() (bizə bildiriş kimi gəlir)
+3) Data Types: 1)String 2) Number 3) Null 4) Undefined 5)Boolean 6)Object  7)Symbol
+Boolean- true ,false çıxarır
+Null- boş deməkdirç bir dəyişənin başlanğıc dəyərini null ilə verə bilərik
+4) Arithmetics:  =,+,-,*,/,--,++,%,** (%- mod; qalığı tapır)
+5) Operators : ==,+=,-=,*=,/=,>,>=,<,<=,!=,===(tipi və dəyərləri bərabər olan)
+6) Logical Operators: 1)&& və  (5>3 && 7<9 true)
+                      2)|| və ya (4=4 || 3>2 false)
+                      3)! not  (2!=3 true)
+7) Dialoq qutular: alert()-bildiriş göndərir,prompt()- istifadəçidən dəyər alır,aldığı dəyər string kimi  anlayır,confirm()-istək göndərir true or false
+8) Functions : 1) function declaration
+               2) function expresion
+               3) arrow function
+//function declaration:
+function name(parm1,parm2){
+
+return 
+}
+console.log(name(parm1,parm2));
+
+//function expression
+let name=function(parm1,parm2){
+return
+}
+console.log(name(parm,parm2));
+
+// arrow function
+let name=(parm1,parm2)=>{
+
+return
+}
+console.log(name(parm1,parm2));
+
+  funksiyanın () içindəkilər parametr,parametrlərə verilən dəyər argument adlanır.
+
+9) pop,push,shift and unshift 
+pop- arrayın son elementini silir
+push-arrayın sonuna element əlavə edir
+shift -ilk elementi silir
+unshift-arrayın əvvəlinə element əlavə edir
+10) Rest operator: Rest operator istifadə etdiyimiz zaman  consola verdiyimiz parametrlərdən əlavə  dəyərlər arrayın içinə yığılırı;
+ex: let check = function(num1,num2,num3...rest){
+ console.log(num1)
+console.log(num2)
+console.log(num3)
+}
+check(3,4,5,6,7,8)
+//3
+  4
+  5
+  [6,7,8]
+10) JavaScriptdə  3 cür dəyişən təyin edə bilirik:var,const, let. var- defaultdur,let- deyeri deyise bilir,const-sabitdir deyise bilmez
+11) Arrays- [] icinde yazilir,array index 0-dan baslayir ,arr[i] ,arryin uzunlugu ,.length ile verilir,birinci element arr[0],sonuncu element arr[arr.length-1]
+12) sert operatorlar-if,else if,else,switch; switchin if elseden ferqi elimizde deqiq ve qisa melumat olanda meselen heftenin gunleri ,aylar kimi istifade olunur.
+13) Loops: for,while,do while (kodu hec olmasa bir defe icra edir)
+for in -indexini gosterir,for of-indexinci elementi gosterir
+mes:
+ let cities=["Bakı","Gəncə","Sumqayıt"];
+ for(let city  in cities){
+    console.log(city)
+ }
+//0
+  1
+  2
+ let cities=["Bakı","Gəncə","Sumqayıt"];
+ for(let city  of cities){
+    console.log(city)
+ }
+//Bakı
+Gəncə
+Sumqayıt
+14) break,continue
+break kodu sonlandirmaq ucun istifade olunur
+mes: for (let i=0;i<10;i++){
+if(i==5){
+break;
+}
+}
+//0,1,2,3,4
+continue dovrun icinde islenerken mueyyen elementi otub dovre davam edir
+mes: for (let i=0;i<10;i++){
+if(i==5){
+continue;
+}
+}
+//0,1,2,3,4,6,7,8,9
+15) Methods-Math.floor  verdiyimiz deyerin tam hissesini cixarir
+mes: let num=Number(prompt("enter value"))
+let num1=Math.floor(num/2)
+console.log(num1)
+.includes elementin arraya daxil olub olmadigini yoxlayir
+
+16)Eger bir function parametr olaraq basqa bir functiin alirsa,alan function high order function adlanir.Parametr kimi alinan function ise callback adlanir.
+function check(arr,cb){
+for (let i=0;i<arr.length;i++){
+if (cb(arr[i])){
+return arr[i]
+}
+}
+}
+const arr=[1,2,3,4,5,6]
+console.log(check(arr,(num)=>num==3)
+//3
+
+17)Ternary operator: eger kodumuz bir setirden ibaret olarsa bu operatordan istifade olunur.Bu operatorda break;continue: islenmez.
+ex:
+2>5? 10:5
+//5
+18) Spread operator
+verdiyimiz deyeri parcalayir,kodu yaymaq ucun istifade olunur.Yalniz birinci dereceli obyekt ve arraylari parcalamaq olar.
+ex:
+const arr=[4,5,6]
+function mult(a,b,c){
+return a*b*c
+}
+console.log(mult(...arr)
+//120
+
+
+
