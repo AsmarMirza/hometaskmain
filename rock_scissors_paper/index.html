@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+          font-family: Georgia, "Times New Roman", Times, serif;
+          text-align: center;
+        }
+  
+        .container {
+          margin-top: 100px;
+        }
+  
+        button {
+          background-color: green;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+  
+        button:hover {
+          background-color: rgb(20, 74, 20);
+        }
+  
+        #result {
+          font-size: 24px;
+          font-weight: bold;
+          margin-top: 20px;
+        }
+      </style>
+  
+      <div class="container">
+        <h1>Taş Kağıt Makas Oyunu</h1>
+        <div id="game">
+          <button id="rock">Taş</button>
+          <button id="paper">Kağıt</button>
+          <button id="scissors">Makas</button>
+        </div>
+        <p id="result"></p>
+      </div>
+  
+      <script>
+        const myRock = document.getElementById("rock");
+        const myPaper = document.getElementById("paper");
+        const myScissors = document.getElementById("scissors");
+        const result = document.getElementById("result");
+  
+        
+        myRock.addEventListener("click", function () {
+          checkResult("rock");
+        });
+        myPaper.addEventListener("click", function () {
+          checkResult("paper");
+        });
+        myScissors.addEventListener("click", function () {
+          checkResult("scissors");
+        });
+        function computerPlay() {
+          const compChoice = ["rock", "paper", "scissors"];
+          const compRandom =
+            compChoice[Math.floor(Math.random() * compChoice.length)];
+          return compRandom;
+        }
+        function checkResult(playerSelect) {
+          const compSelect = computerPlay();
+          let end;
+          if (compSelect == playerSelect) {
+            end = "You are tied";
+          } else if (
+            (playerSelect == "rock" && compSelect == "scissors") ||
+            (playerSelect == "scissors" && compSelect == "paper") ||
+            (playerSelect == "paper" && compSelect == "rock")
+          ) {
+            end = "You win!";
+          } else {
+            end = "You lose!";
+          }
+          result.textContent = end;
+        }
+      </script>
+</body>
+</html>
