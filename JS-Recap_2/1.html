@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. Bir düyməyə basın və ekrana daxil etdiyiniz mətni alert kimi görünsün.
+2. Bir input olsun və hər mətn yazdığınızda bunu yadda saxlasın, səhifəni yeniləsəniz belə silinməsin (login kimi).
+3. İki input və bir düymə olsun. Düyməyə basdığınızda birinci inputdan başlığı, ikinci inputdan isə mətni alınaraq bir "card" yaradılsın (bir növ xəbər saytındakı xəbər kimi). "Card"ın dizaynı mühüm deyil, sadəcə element yaradıb onu yerləşdirin (todo ilə oxşar, lakin iki məlumat alırsınız).
+4. Əvvəlki tapşırığın yaddaşda qalmasını təmin edin, səhifəni yeniləsəniz belə. -->
+
+
+    <!-- 1. Bir düyməyə basın və ekrana daxil etdiyiniz mətni alert kimi görünsün. -->
+
+    <input id="text" type="text">
+    <button id="btn">Click</button>
+    <script>
+        const text=document.getElementById("text")
+        const btn=document.getElementById("btn")
+    
+    
+        btn.addEventListener("click",function(e){
+        alert(text.value)
+        })
+    </script> 
+</body>
+</html>

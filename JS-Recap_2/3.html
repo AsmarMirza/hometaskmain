@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 3. İki input və bir düymə olsun. Düyməyə basdığınızda birinci inputdan başlığı, ikinci inputdan isə mətni alınaraq bir "card" yaradılsın (bir növ xəbər saytındakı xəbər kimi). "Card"ın dizaynı mühüm deyil, sadəcə element yaradıb onu yerləşdirin (todo ilə oxşar, lakin iki məlumat alırsınız). -->
+
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #box {
+        border: 1px solid rgb(116, 177, 102);
+        background-color: rgb(116, 177, 102);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 7px;
+        width: 400px;
+        height: 200px;
+        text-align: center;
+      }
+    </style>
+    <input id="heading" type="text" />
+    <input id="text" type="text" />
+    <button id="btn">Click</button>
+    <div id="box"></div>
+    <script>
+      const heading = document.getElementById("heading");
+      const text = document.getElementById("text");
+      const click = document.getElementById("btn");
+      const box = document.getElementById("box");
+
+      let obj = localStorage.getItem("obj")?JSON.parse(localStorage.getItem("obj")) :{
+        header: "",
+        content: "",
+      };
+      heading.value = obj.header;
+      text.value = obj.content;
+      click.addEventListener("click", function () {
+          createElements();
+        localStorage.setItem("obj",JSON.stringify(obj))
+      });
+
+      function createElements() {
+        const myH = document.createElement("h2");
+        const myP = document.createElement("p");
+        myH.textContent = heading.value;
+        heading.value = obj.header;
+        myP.textContent = text.value;
+        text.value = obj.content;
+        box.textContent = "";
+        box.append(myH, myP);
+      }
+      createElements()
+    </script>
+  </body>
+</html>

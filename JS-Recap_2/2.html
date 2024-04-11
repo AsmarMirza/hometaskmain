@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <!-- 2. Bir input olsun və hər mətn yazdığınızda bunu yadda saxlasın, səhifəni yeniləsəniz belə silinməsin (login kimi). -->
+        
+      <input id="login" type="text" />
+      <p id="text"></p>
+      <script>
+        const logIn = document.getElementById("login");
+        const text = document.getElementById("text");
+  
+        let obj = localStorage.getItem("logIn")
+          ? JSON.parse(localStorage.getItem("logIn"))
+          : {
+              text: "",
+            };
+        text.textContent = obj.text;
+        logIn.addEventListener("keyup", function () {
+          text.textContent = logIn.value;
+          obj.text = logIn.value;
+          localStorage.setItem("logIn", JSON.stringify(obj));
+        });
+      </script>
+</body>
+</html>
