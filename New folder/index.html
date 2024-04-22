@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //     function outer(){
+      //         let count=5
+      //         return function inner(){
+      //             count++
+      //             return count;
+      //         }
+      //     }
+      //     const result=outer();
+      //     result()
+      //     result()
+      //    console.log(result());
+
+      function calculator(val) {
+        let memory = 0;
+        return {
+          add(val) {
+            memory += val;
+            return memory;
+          },
+          substruction(val) {
+            memory -= val;
+            return memory;
+          },
+          multiplication(val = 5) {
+            memory *= val;
+            return memory;
+          },
+          division(val) {
+            memory /= val;
+            return memory;
+          },
+
+          clear(val = 0) {
+            memory = val;
+          },
+        };
+      }
+
+      const result = calculator(5);
+
+      console.log(result.add(2));
+    </script>
+  </body>
+</html>
