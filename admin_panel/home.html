@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-decoration:none ;
+            color: black;
+        }
+        #container{
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            gap: 20px;
+            justify-content: center;
+        }
+        .box{
+            border: 1px solid black;
+           height: 300px;
+           border-radius: 5px;
+           border: 1px solid rgb(140, 136, 136);
+           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .userImg{
+           width: 100%;
+           height: 200px;
+           border-radius: 5px;
+           
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 70px;
+            margin-top: 70px;
+        }
+        .same{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>OUR COLLEAGUES</h1>
+    <div id="container"></div>
+    <script>
+       async function getUsers(){
+        const res=await fetch("http://localhost:3000/users")
+        const data=await res.json()
+        return data
+       }
+
+
+const container=document.getElementById("container")
+
+
+       async function showUsers(){
+         let arr=await getUsers()
+         arr.forEach(element => {
+            const box=document.createElement("div")
+            const image=document.createElement("img")
+            const name=document.createElement("h3")
+            const job=document.createElement("p")
+            const link=document.createElement("a")
+        
+            
+
+            box.className="box"
+            image.className="userImg"
+            name.className="same"
+            job.className="same"
+
+            image.src=element.img_url
+            name.textContent=element.name
+            job.textContent= element.job
+
+            
+            box.append(image,name,job)
+            container.appendChild(link)
+            link.appendChild(box)
+            link.href=("./adminPanel.html")
+
+
+         });
+       }
+       showUsers()
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(198, 204, 204);
+      }
+      form {
+        margin-top: 40px;
+        padding: 20px;
+        border: 1px solid rgb(178, 173, 173);
+        width: 300px;
+        height: 300px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        background-color: bisque;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        border-radius: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <input id="userimg" type="text"  placeholder="img.."/>
+      <input id="username" type="text"  placeholder="name.."/>
+      <input id="userjob" type="text" placeholder="job.." />
+      <button id="addBtn">Add User</button>
+    </form>
+    <script>
+      const userimg = document.getElementById("userimg");
+      const username = document.getElementById("username");
+      const userjob = document.getElementById("userjob");
+      const addBtn = document.getElementById("addBtn");
+
+      addBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        async function postUsers() {
+          const res = await fetch("http://localhost:3000/users", {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            method: "post",
+            body: JSON.stringify({
+              img_url: userimg.value,
+              name: username.value,
+              job: userjob.value,
+            }),
+          });
+          const data = await res.json();
+          return data;
+        }
+        postUsers();
+      });
+    </script>
+  </body>
+</html>
